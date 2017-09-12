@@ -17,7 +17,7 @@ export class Body extends React.Component {
         const { authors } = this.state
         var name = '';
 
-        const url = "https://randomuser.me/api/?results=10";
+        const url = "https://randomuser.me/api/?results=10&gender=female";
         fetch(url)
             .then((response) => response.json()) // Transform the data into json
             .then( jsonResponse => this.setState({

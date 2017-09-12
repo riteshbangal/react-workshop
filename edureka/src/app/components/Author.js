@@ -32,7 +32,7 @@ export class Author extends React.Component {
                 <Table.Header>
                     <Table.Row hei>
                         <Table.HeaderCell>Author</Table.HeaderCell>
-                        <Table.HeaderCell>Name</Table.HeaderCell>
+                        {/* <Table.HeaderCell>Name</Table.HeaderCell> */}
                         <Table.HeaderCell>Details</Table.HeaderCell>
                     </Table.Row>
                 </Table.Header>
@@ -50,8 +50,7 @@ export class Author extends React.Component {
                                             + author.name.first + ' ' + author.name.last)}
                                     </Header.Content>
                                 </Header>
-                            </Table.Cell>
-                            <Table.Cell>
+                            
                                 <p>{'Email Id: ' + author.email}</p>
                                 <p>{'Phone Number: ' + author.phone}</p>
                             </Table.Cell>
