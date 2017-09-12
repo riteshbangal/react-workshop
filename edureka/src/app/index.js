@@ -14,7 +14,7 @@ class EdurekaApp extends React.Component {
             <div className="container" style={edureka_style}>
                 <Header username="Ritesh" />
                 <Body />
-                <Bulb />
+                {/* <Bulb /> */}
                 <Footer />
             </div>
         );

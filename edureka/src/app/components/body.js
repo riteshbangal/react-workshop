@@ -1,40 +1,42 @@
 import React from "react";
+import { Button, Divider } from 'semantic-ui-react';
+
+import { Author } from "./Author";
 
 export class Body extends React.Component {
 
     constructor() {
 		super();
 		this.state = {
-			authorNames: []
+			authors: []
 		};
     }
     
     fetchAuthors() {
         
-        const { authorNames } = this.state
+        const { authors } = this.state
         var name = '';
 
         const url = "https://randomuser.me/api/?results=10";
-        fetch(url).then((response) => response.json())
-                  .then(function(data){
-                      let authors = data.results;
-                      authors.map(function(author ) {
-                        name = author.name.first + " " + author.name.last;
-                        console.log("Author Name: " + name);
-                        
-                      })
-                  })
+        fetch(url)
+            .then((response) => response.json()) // Transform the data into json
+            .then( jsonResponse => this.setState({
+                    authors: jsonResponse.results
+                }
+            ));
     }
 
     render() {
-        const { authorName } = this.state	
-        console.log("Author Name: " + authorName);
-
+        const { authors } = this.state	
+        console.log("Authors: " + authors);
+        
         var text = "Authors API Call";
-        //console.log("Body | this is console log.");
         return (
             <div className="container">
-                {text} {' : '}<button onClick={() => this.fetchAuthors()}>Get Authors</button>
+                {text} {' : '}<Button primary color='teal' fluid size='large' onClick={() => this.fetchAuthors()}>Get Authors</Button>
+                <Divider/>
+                <Author authors={authors}/>
+                <Divider/>
             </div>
         );
     }
